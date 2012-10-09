@@ -7,7 +7,6 @@ import "fmt"
 
 var primes [10001]int64
 var c int64
-var i int
 
 func main() {
 	primes[0] = 2
