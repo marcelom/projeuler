@@ -1,4 +1,6 @@
-projeuler
-=========
+Project Euler
+=============
 
-My Project Euler solutions
+My Project Euler solutions...
+
+Dont bully me... some are pretty lame, but I am learning as well...
