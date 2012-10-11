@@ -40,6 +40,6 @@ func p1s2() int {
 
 // Problem 1, Solution 3 - Now we are talking...
 func p1s3() int {
-	sum := 3*(1000)*(1001)/2 + 5*(1000)*(1001)/2 - 15*1000*1001/2
+	sum := 3*(1000)*(1001)/2 + 5*(1000)*(1001)/2 //- 15*1000*1001/2
 	return sum
 }
