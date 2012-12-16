@@ -11,6 +11,7 @@ func main() {
 			c := 1000 - a - b
 			if a*a+b*b == c*c {
 				fmt.Println("Found it: (a b c) = (", a, b, c, ")")
+				fmt.Println("          (a*b*c) = (", a*b*c, ")")
 				return
 			}
 		}
