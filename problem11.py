@@ -38,15 +38,15 @@ for x in range(19):
 			if m > largest:
 				largext = m
 				numbers = [ g[x][y], g[x][y+1], g[x][y+2], g[x][y+3] ]
-		if x < 17 and y < 17:
-			m = g[x][y]*g[x+1][y+1]*g[x+2][y+2]*g[x+3][y+3]
-			if m > largest:
-				largest = m
-				numbers = [ g[x][y], g[x+1][y+1], g[x+2][y+2], g[x+3][y+3] ]
-		if x > 4 and y < 17:
-			m = g[x][y]*g[x-1][y+1]*g[x-2][y+2]*g[x-3][y+3]
-			if m > largest:
-				largest = m
-				numbers = [ g[x][y], g[x-1][y+1], g[x-2][y+2], g[x-3][y+3]  ]
+			if x < 17:
+				m = g[x][y]*g[x+1][y+1]*g[x+2][y+2]*g[x+3][y+3]
+				if m > largest:
+					largest = m
+					numbers = [ g[x][y], g[x+1][y+1], g[x+2][y+2], g[x+3][y+3] ]
+			if x > 4:
+				m = g[x][y]*g[x-1][y+1]*g[x-2][y+2]*g[x-3][y+3]
+				if m > largest:
+					largest = m
+					numbers = [ g[x][y], g[x-1][y+1], g[x-2][y+2], g[x-3][y+3]  ]
 
 print "numbers are ( %s, %s, %s, %s ), largest product is: %s" % ( numbers[0], numbers[1], numbers[2], numbers[3], largest )
