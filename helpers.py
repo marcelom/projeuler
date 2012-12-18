@@ -49,4 +49,10 @@ def Divisors(n):
 	#print divs
 	return sorted([1]+list(divs))
 
+def ProperDivisors(n):
+	return Divisors(n)[:-1]
+
 #print Divisors(141235)
+#print ProperDivisors(141235)
+
+
