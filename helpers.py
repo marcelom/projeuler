@@ -1,4 +1,5 @@
 import operator
+import itertools
 
 # On demand prime generator...
 # Found this online, pretty clever function...
@@ -35,3 +36,13 @@ def NumberOfDivisors(n):
 	d = PrimeDecomp(n)
 	powers_plus = map(lambda x: x+1, d.values())
 	return reduce(operator.mul, powers_plus, 1)
+
+def Divisors(n):
+	d = PrimeDecomp(n)
+	l = list(itertools.chain(*([k] * v for k, v in d.iteritems())))
+	#print l
+	factors = set(itertools.chain(*(itertools.permutations(l, i) for i in range(1,len(l)+1))))
+	#print factors
+	divs = set (reduce(operator.mul, fs, 1) for fs in factors)
+	#print divs
+	return sorted([1]+list(divs))
