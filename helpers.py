@@ -38,11 +38,13 @@ def NumberOfDivisors(n):
 	return reduce(operator.mul, powers_plus, 1)
 
 def Divisors(n):
+	if n == 1:
+		return [1]
 	d = PrimeDecomp(n)
 	l = list(itertools.chain(*([k] * v for k, v in d.iteritems())))
 	#print l
 	factors = set(itertools.chain(*(itertools.permutations(l, i) for i in range(1,len(l)+1))))
 	#print factors
-	divs = set (reduce(operator.mul, fs, 1) for fs in factors)
+	divs = set(reduce(operator.mul, fs, 1) for fs in factors)
 	#print divs
 	return sorted([1]+list(divs))
