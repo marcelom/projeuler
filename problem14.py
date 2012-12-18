@@ -3,11 +3,11 @@ c = {}
 
 # fill the lookup table first...
 
-for i in range(1, 20, 2):
-	odd = 3*i+1
+for i in range(1, 100, 2):
+	a1 = (i-1)/3
 	even = (i+1)/2
-	c[i] = c.get(odd, -odd) +1
-	c[i+1] = c.get(even, -even) +1
+	c[i] = odd
+	c[i+1] = even
 
 print c
 
