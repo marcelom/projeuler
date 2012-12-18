@@ -1,11 +1,12 @@
 from sets import Set
 
-#seq = Set([])
 seq = []
 
 for a in range(2,101):
+	x = a
 	for b in range(2,101):
-		seq.append(a**b)
+		x *= a
+		seq.append(x)
 
 #sorted(seq)
 #print seq

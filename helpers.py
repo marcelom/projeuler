@@ -48,3 +48,5 @@ def Divisors(n):
 	divs = set(reduce(operator.mul, fs, 1) for fs in factors)
 	#print divs
 	return sorted([1]+list(divs))
+
+#print Divisors(141235)
