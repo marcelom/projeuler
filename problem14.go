@@ -5,8 +5,7 @@ import (
 )
 
 func main() {
-	longest := uint32(0)
-	terms := uint32(0)
+	var longest, terms uint32
 
 	for i := uint32(1); i <= 1000000; i++ {
 		j := i
