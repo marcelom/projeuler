@@ -1,27 +1,40 @@
 
-c = {}
+# collatz cache
+c = { 1:4, 2:2 }
 
-# fill the lookup table first...
-
-for i in range(1, 100, 2):
-	a1 = (i-1)/3
-	even = (i+1)/2
-	c[i] = odd
-	c[i+1] = even
-
-print c
-
-sdfsd
-
-
-def collatz(n):
-	s = []
-	x =n
+def CollatzSequenceLength(n):
+	# Given the number, return the length on the Collatz sequence
+	# uses a cache to speed up the process...
+	if n in c:
+		#print "direct-cache-hit(%s)" % n,
+		return c[n]
+	b = [ n ]
 	while True:
-		x = c[x]
-		s.append(x)
-		if x == 1:
-			break
-	return s
+		d,r = divmod(b[-1],2)
+		if r == 0:
+			b.append(d)
+		else:
+			b.append(3*b[-1]+1)
+		try:
+			while len(b)>1:
+				c[b[-2]] = c[b[-1]] + 1
+				#print "cache-hit(%s)" % b[-1],
+				b.pop()
+			return c[n]
+		except KeyError:
+			# c[b[-1]] does not exist, continue...
+			#print "cache-miss(%s)" % b[-1],
+			pass
 
-print max( [ collatz(i) for i in range(1, 1000001) ] )
+startnumber = 0
+largestsequence = 0
+
+for x in range(1,1000001):
+	#print x,CollatzSequenceLength(x)
+	z = CollatzSequenceLength(x)
+	if z > largestsequence:
+		largestsequence = z
+		startnumber = x
+
+print "Largest sequence is %s, starting number is %s" % (largestsequence, startnumber)
+
