@@ -13,7 +13,7 @@ cache = {}
 
 def d(n):
 	if n not in cache:
-		cache[n] = sum(helpers.Divisors(n))
+		cache[n] = sum(helpers.ProperDivisors(n))
 	return cache[n]
 
 for p in range(1, 10001):
