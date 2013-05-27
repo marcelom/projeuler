@@ -1,18 +1,29 @@
+# Problem 21
+# Let d(n) be defined as the sum of proper divisors of n (numbers less than n which divide evenly into n).
+# If d(a) = b and d(b) = a, where a  b, then a and b are an amicable pair and each of a and b are called
+# amicable numbers.
+# For example, the proper divisors of 220 are 1, 2, 4, 5, 10, 11, 20, 22, 44, 55 and 110; therefore
+# d(220) = 284. The proper divisors of 284 are 1, 2, 4, 71 and 142; so d(284) = 220.
+# Evaluate the sum of all the amicable numbers under 10000.
+
 import helpers
 
 amicable = []
-psum = 0
+cache = {}
 
-for p in range(1,10001):
+def d(n):
+	if n not in cache:
+		cache[n] = sum(helpers.Divisors(n))
+	return cache[n]
+
+for p in range(1, 10001):
 	if p in amicable:
 		break
-	a1 = sum(helpers.Divisors(p))
-	a2 = sum(helpers.Divisors(a1))
+	a1 = d(p)
+	a2 = d(a1)
 	print p, a1, a2
 	if a2 == p:
-		print a2
-		psum += p
 		amicable.append(p)
 		amicable.append(a1)
 
-print ps
+print sum(amicable)
